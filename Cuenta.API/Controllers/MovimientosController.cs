@@ -44,14 +44,14 @@ namespace Cuenta.API.Controllers
             return Ok(nuevoMovimiento);
         }
 
-        [HttpPut]
+        [HttpPut("{Id}")]
         public async Task<ActionResult<List<Movimientos>>> Put(int Id, Movimientos movimiento)
         {
             var movimientos = await _service.UpdateMovimientoAsync(Id, movimiento);
             return Ok(movimientos);
         }
 
-        [HttpDelete]
+        [HttpDelete("{Id}")]
         public async Task<ActionResult<Movimientos>> Delete(int Id)
         {
             var movimientoEliminado = await _service.DeleteMovimientoAsync(Id);
