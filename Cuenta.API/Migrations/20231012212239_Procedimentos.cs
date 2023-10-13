@@ -12,7 +12,7 @@ namespace Cuenta.API.Migrations
                                     @CuentaId INT,
                                     @Valor DECIMAL(18, 2)
                                 AS
-                                BEGIN
+                                 BEGIN
                                     -- Verificar si la cuenta existe y obtener el saldo actual
                                     DECLARE @SaldoInicial DECIMAL(18, 2);
                                     SELECT @SaldoInicial = SaldoInicial
@@ -22,7 +22,7 @@ namespace Cuenta.API.Migrations
                                     -- Validar si la cuenta existe
                                     IF @SaldoInicial IS NULL
                                     BEGIN
-                                        SELECT 'Cuenta no encontrada' AS Mensaje;
+                                        set @Mensaje = 'Cuenta no encontrada';
                                         RETURN;
                                     END
 
@@ -34,7 +34,7 @@ namespace Cuenta.API.Migrations
                                         SET @TipoMovimiento = 'Retiro';
                                     ELSE
                                     BEGIN
-                                        SELECT 'Valor no válido' AS Mensaje;
+                                         set @Mensaje = 'Valor no válido';
                                         RETURN;
                                     END
 
@@ -51,7 +51,7 @@ namespace Cuenta.API.Migrations
                                         END
                                         ELSE
                                         BEGIN
-                                            SELECT 'Saldo Insuficiente' AS Mensaje;
+                                             set @Mensaje = 'Saldo Insuficiente';
                                             RETURN;
                                         END
                                     END
@@ -64,10 +64,10 @@ namespace Cuenta.API.Migrations
                                     END
 
                                     -- Registrar el movimiento
-                                    INSERT INTO Movimientos (Fecha, TipoMovimineto, Valor, Saldo, CuentaId)
-                                    VALUES (GETDATE(), @TipoMovimiento, @Valor, @SaldoInicial, @CuentaId);
+                                    INSERT INTO Movimientos (Fecha, TipoMovimineto, Valor, Saldo, CuentaId,Estado)
+                                    VALUES (GETDATE(), @TipoMovimiento, @Valor, @SaldoInicial, @CuentaId,1);
 
-                                    SELECT 'Registro Exitoso' AS Mensaje;
+                                     set @Mensaje ='Registro Exitoso' ;
                                 END
                                 ");
 
