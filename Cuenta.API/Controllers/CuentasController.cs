@@ -41,6 +41,12 @@ namespace Cuenta.API.Controllers
             var cuentas = await _service.UpdateCuentaAsync(Id, cuenta);
             return Ok(cuentas);
         }
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Cuentas>> GetById(int Id)
+        {
+            var cuentas = await _service.GetCuentaAsync(Id);
+            return Ok(cuentas);
+        }
 
         [HttpDelete("{Id}")]
         public async Task<ActionResult<Cuentas>> Delete(int Id)

@@ -30,7 +30,7 @@ namespace Cuenta.API.Controllers
             var movimientos = await _service.GetMovimientoAsync(id);
             return Ok(movimientos);
         }
-        [HttpGet("/cuenta/{idCuenta}")]
+        [HttpGet("cuenta/{idCuenta}")]
         public async Task<ActionResult<List<Movimientos>>> GetMovimientosCuenta(int idCuenta)
         {
             var movimientos = await _service.GetMovimientoCuentaAsync(idCuenta);

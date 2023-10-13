@@ -66,6 +66,7 @@ namespace Cuenta.Infrastructure.Repository
             var existingCuenta = await _cuentaDbContext.Cuentas.FindAsync(id);
             if (existingCuenta != null)
             {
+                cuentas.CuentasId=id;
                _cuentaDbContext.Entry(existingCuenta).CurrentValues.SetValues(cuentas);
                 await _cuentaDbContext.SaveChangesAsync();
             }
