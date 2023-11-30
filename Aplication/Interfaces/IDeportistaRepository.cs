@@ -1,6 +1,6 @@
 ﻿using Domain.Entitys;
 
-namespace Application.Interfaces;
+namespace Aplication.Interfaces;
 
 public interface IDeportistaRepository
 {

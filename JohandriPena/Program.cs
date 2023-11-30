@@ -1,17 +1,20 @@
-using System.Text;
+using Aplication.Interfaces;
 using Application.Interfaces;
 using Application.Mapper;
 using Application.Services;
 using Infrastructure;
 using Infrastructure.Repository;
 using Infrastructure.Validations;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Logging.AddFile(@"./LOG/LOG.txt");
 // Register Configuration
 var configuration = builder.Configuration;
 // Add services to the container.
@@ -40,10 +43,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddHttpClient();
 //Add Database Service
-
 builder.Services.AddDbContext<DeportistaDbContext>(opt => opt.UseSqlServer(
-    configuration.GetConnectionString("DefaultConnection"),
-    b => b.MigrationsAssembly("Cuenta.API")));
+    configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddScoped<IDeportistaRepository, DeportistaRepository>();
 builder.Services.AddScoped<IDeportistaService, DeportistaSerivces>();

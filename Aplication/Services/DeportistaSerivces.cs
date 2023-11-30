@@ -1,9 +1,10 @@
-﻿using Application.Interfaces;
+﻿using Aplication.Interfaces;
+using Application.Interfaces;
 using Application.Mapper;
 using Domain.DTOs;
 using Domain.Entitys;
 
-namespace Application.Services;
+namespace Aplication.Services;
 
 public class DeportistaSerivces : IDeportistaService
 {

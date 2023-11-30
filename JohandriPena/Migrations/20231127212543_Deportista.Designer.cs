@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Cuenta.API.Migrations
+namespace JohandriPena.Migrations
 {
     [DbContext(typeof(DeportistaDbContext))]
     [Migration("20231127212543_Deportista")]

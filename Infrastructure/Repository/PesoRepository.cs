@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Aplication.Interfaces;
+using Application.Interfaces;
 using Domain.Entitys;
 using FluentValidation;
 using Infrastructure.Validations;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;
 
-public class PesoRepository : IPesoRepository
+public class PesoRepository :  IPesoRepository
 {
     private readonly DeportistaDbContext _pesoDbContext;
    private readonly ValidationsPeso _validationsPeso;

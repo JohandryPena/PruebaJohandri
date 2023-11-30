@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Cuenta.API.Migrations
+namespace JohandriPena.Migrations
 {
     [DbContext(typeof(DeportistaDbContext))]
     partial class DeportistaDbContextModelSnapshot : ModelSnapshot

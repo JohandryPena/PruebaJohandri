@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Cuenta.API.Migrations
+namespace JohandriPena.Migrations
 {
     public partial class Deportista : Migration
     {

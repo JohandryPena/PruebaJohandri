@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Aplication.Interfaces;
+using Application.Interfaces;
 using Domain.Entitys;
 using Infrastructure.Validations;
 using Microsoft.EntityFrameworkCore;
